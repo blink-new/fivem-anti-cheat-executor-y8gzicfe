@@ -69,8 +69,8 @@ const testCommands: TestCommand[] = [
   // QBCore Framework
   {
     id: 'qb-money-1',
-    name: 'Add Money (QBCore)',
-    description: 'QBCore banking exploit',
+    name: 'Add Money (QBCore Bank)',
+    description: 'QBCore banking exploit - add to bank',
     command: "TriggerServerEvent('qb-banking:server:AddMoney', 'bank', 1000000, 'testing')",
     category: 'money',
     framework: 'qbcore',
@@ -78,9 +78,36 @@ const testCommands: TestCommand[] = [
   },
   {
     id: 'qb-money-2',
-    name: 'Set Money (QBCore)',
-    description: 'Set player money directly',
+    name: 'Set Money (QBCore Bank)',
+    description: 'Set player bank money directly',
     command: "TriggerServerEvent('QBCore:Server:SetMoney', GetPlayerServerId(PlayerId()), 'bank', 5000000)",
+    category: 'money',
+    framework: 'qbcore',
+    risk: 'high'
+  },
+  {
+    id: 'qb-money-3',
+    name: 'Add Money (QBCore Cash)',
+    description: 'QBCore banking exploit - add cash',
+    command: "TriggerServerEvent('QBCore:Server:AddMoney', 'cash', 1000000)",
+    category: 'money',
+    framework: 'qbcore',
+    risk: 'high'
+  },
+  {
+    id: 'qb-money-4',
+    name: 'Set Money (QBCore Cash)',
+    description: 'Set player cash directly',
+    command: "TriggerServerEvent('QBCore:Server:SetMoney', GetPlayerServerId(PlayerId()), 'cash', 5000000)",
+    category: 'money',
+    framework: 'qbcore',
+    risk: 'high'
+  },
+  {
+    id: 'qb-money-5',
+    name: 'Transfer Exploit (QBCore)',
+    description: 'Attempts to transfer money from another player (common pattern)',
+    command: "TriggerServerEvent('QBCore:Server:TransferMoney', GetPlayerServerId(PlayerId()), 1, 1000000)",
     category: 'money',
     framework: 'qbcore',
     risk: 'high'
